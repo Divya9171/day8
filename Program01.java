@@ -1,47 +1,40 @@
-package com.day8;
-//custom exception
-//unchecked exception
-class InvalidDateException extends RuntimeException {
+package com.demo2;
+import java.util.Scanner;
 
-	public InvalidDateException() {
-	}
-
-	public InvalidDateException(String message) {
-		super(message);
-	}
+enum ArithmeticOperation {
+	EXIT, ADDITION, SUBSTRACTION, MULTIPLICATION, DIVISION, SQUARE, SQUAREROOT
 }
 
-class Date {
-	private int day;
-	private int month;
+public class Program01{
+	private static ArithmeticOperation menu(Scanner sc) {
+		ArithmeticOperation arr[] = ArithmeticOperation.values();
+		for (ArithmeticOperation e : arr)
+			System.out.println(e.ordinal() + ". " + e.name());
 
-	public void setDay(int day) {
-		if (day <= 0 || day > 31)
-			throw new InvalidDateException();
-		this.day = day;
-	}
-
-	public void setMonth(int month) {
-		if (month <= 0 || month > 12)
-			throw new InvalidDateException("Month should be between 1 and 12");
-		this.month = month;
-	}
-
-	@Override
-	public String toString() {
-		return "Date [day=" + day + ", month=" + month + "]";
-	}
-
-public class Program01 {
-
+		System.out.print("Enter your choice - ");
+		return arr[sc.nextInt()];
+}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Date d1 = new Date();
-		d1.setDay(15);
-		d1.setMonth(1);
-		System.out.println(d1);
+		Scanner sc = new Scanner(System.in);
+		ArithmeticOperation choice = menu(sc);
+		switch (choice) {
+		case EXIT:
+			break;
+		case ADDITION:
+			break;
+		case SUBSTRACTION:
+			break;
+		case MULTIPLICATION:
+			break;
+		case DIVISION:
+			break;
+		case SQUARE:
+			break;
+		case SQUAREROOT:
+			break;
 
+		}
 	}
 
-}
-}
+	}
